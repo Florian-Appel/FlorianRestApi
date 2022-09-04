@@ -28,18 +28,9 @@ DEBUG = True
 ALLOWED_HOSTS = ['FlorianAppel.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 CORS_ALLOWED_ORIGINS = [
-    "FlorianAppel.pythonanywhere.com",
+    "https://FlorianAppel.pythonanywhere.com",
     "localhost",
     "127.0.0.1",
-]
-
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
 ]
 
 
