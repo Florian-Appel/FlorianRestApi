@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-inpg*9o_*voi&#w^b!h7yiuxx!aki)4=)8d^&8$nqar^!=nyj0
 DEBUG = True
 
 ALLOWED_HOSTS = ['florianappel.pythonanywhere.com', '127.0.0.1:5500', 'localhost']
-
+CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'todo',
     'rest_framework',
 ]
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
