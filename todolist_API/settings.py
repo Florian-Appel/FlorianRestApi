@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['florianappel.pythonanywhere.com', '127.0.0.1:5500', 'localhost']
 
 CORS_ALLOWED_ORIGINS = [
-    'localhost',
+    'localhost:5500',
+    '127.0.0.1:5500',
 ]
 
 # Application definition
