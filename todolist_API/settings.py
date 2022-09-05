@@ -27,13 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['FlorianAppel.pythonanywhere.com', '127.0.0.1', 'localhost']
 
-CORS_ALLOWED_ORIGINS = [
-    "https://FlorianAppel.pythonanywhere.com",
-    "localhost",
-    "127.0.0.1",
-]
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'todo',
     'rest_framework',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -56,8 +48,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'todolist_API.urls'
