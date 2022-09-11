@@ -19,7 +19,7 @@ Erstellung einer REST-API (django-rest-framework.org)
 """
 
 class ToDoSerializer(serializers.HyperlinkedModelSerializer):
-    user = UserSerializer()
+    # user = UserSerializer()
 
     class Meta:
         model = ToDo
