@@ -6,11 +6,11 @@ from .models import ToDo
 Da "User" was komplexeres ist, wir in der folgenden klasse gesagt, was genau wir aus "User" haben wollen.
 """
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+# class UserSerializer(serializers.HyperlinkedModelSerializer):
 
-    class Meta:
-        model = User
-        fields = ['id', 'first_name', 'last_name', 'username', 'email']
+#     class Meta:
+#         model = User
+#         fields = ['id', 'first_name', 'last_name', 'username', 'email']
 
 """
 Erstellung einer REST-API (django-rest-framework.org)
