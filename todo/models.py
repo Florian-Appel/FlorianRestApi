@@ -8,7 +8,7 @@ class ToDo(models.Model):
     title = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
     chreated_at = models.DateField(default=datetime.date.today)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=None, null=True, blank=True)
 
     """
     Man kann eine Funtion in das Model packen, so das es dann auch in der API erscheint. (siehe serializer.py)
