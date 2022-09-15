@@ -19,7 +19,8 @@ Erstellung einer REST-API (django-rest-framework.org)
 """
 
 class ToDoSerializer(serializers.HyperlinkedModelSerializer):
-    user = UserSerializer()
+    # user = UserSerializer()
+    user = serializers.PrimaryKeyRelatedField(read_only=True, default=serializers.CurrentUserDefault())
 
     class Meta:
         model = ToDo
