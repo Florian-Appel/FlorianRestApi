@@ -4,6 +4,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from todo.views import ToDoViewSet
+from todo.views import index
 
 """
 Code from django rest framework site
@@ -17,5 +18,5 @@ router.register(r'todos', ToDoViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
-    path('index/', ToDoViewSet),
+    path('index/', index),
 ]

@@ -9,6 +9,9 @@ from .models import ToDo
 """
 Code from django rest framework site
 """
+def index(request):
+    return render(request, 'templates/index.html')
+
 
 class ToDoViewSet(viewsets.ModelViewSet):
     """
