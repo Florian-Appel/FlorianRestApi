@@ -17,4 +17,5 @@ router.register(r'todos', ToDoViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('index/', ToDoViewSet),
 ]
