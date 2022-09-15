@@ -10,7 +10,7 @@ from .models import ToDo
 Code from django rest framework site
 """
 def index(request):
-    return render(request, 'templates/index.html')
+    return render(request, 'index.html')
 
 
 class ToDoViewSet(viewsets.ModelViewSet):
