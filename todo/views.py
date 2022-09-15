@@ -23,6 +23,6 @@ class ToDoViewSet(viewsets.ModelViewSet):
     """
 
     def create(self, request):
-        todo = ToDo.objects.create(title=request.POST.get('title', ''), description= request.POST.get('description', ''), user= request.user)
+        todo = ToDo.objects.create(title=request.POST.get('title', ''), description= request.POST.get('description', ''), user= self.request.user)
         serialized_obj = serializers.serialize('json', [todo, ])
         return HttpResponse(serialized_obj, content_type='application/json')
