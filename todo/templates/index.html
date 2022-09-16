@@ -111,6 +111,58 @@
     </style>
 
     <script>
+
+
+        function openForm() {
+            document.getElementById("popupForm").style.display = "block";
+            document.getElementById('backround').classList.add('backround');
+        }
+        function closeForm() {
+            document.getElementById("popupForm").style.display = "none";
+            document.getElementById('backround').classList.remove('backround');
+        }
+
+
+        async function sendMessage() {
+            let fd = new FormData();
+            let token = '{{ csrf_token }}';
+            fd.append('title', titleField.value);
+            fd.append('csrfmiddlewaretoken', token);
+
+            try {
+                todo_container.innerHTML += `
+            <div id="deleteMessage">
+                <span>Title 1: ${titleField.value}</span>
+                
+            </div>
+        `;
+
+                let response = await fetch('https://florianappel.pythonanywhere.com/todos/', {
+                    method: 'POST',
+                    body: fd
+                });
+                console.log(response);
+                let json = await response.json();
+                console.log(json);
+
+                document.getElementById('deleteMessage').remove();
+
+
+                todo_container.innerHTML += `
+            <div>
+                <div>
+                    <span>Title 2: ${titleField.value}</span>
+
+                </div>
+            </div>
+        `;
+                titleField.value = '';
+
+            } catch (e) {
+                console.log('ERROR!', e)
+            }
+        }
+
         async function init() {
             let url = 'https://florianappel.pythonanywhere.com/todos/';
             // console.log('1:', url);
@@ -140,64 +192,15 @@
         `;
             }
         }
-
-        function openForm() {
-            document.getElementById("popupForm").style.display = "block";
-            document.getElementById('backround').classList.add('backround');
-        }
-        function closeForm() {
-            document.getElementById("popupForm").style.display = "none";
-            document.getElementById('backround').classList.remove('backround');
-        }
-
-        // Test:
-
-        async function sendMessage() {
-            let fd = new FormData();
-            let token = '{{ csrf_token }}';
-            fd.append('title', titleField.value);
-            fd.append('csrfmiddlewaretoken', token);
-
-            try {
-                todo_container.innerHTML += `
-            <div id="deleteMessage">
-                <span>Title 1: ${titleField.value}</span>
-                
-            </div>
-        `;
-
-                let response = await fetch('/todos/', {
-                    method: 'POST',
-                    body: fd
-                });
-                console.log(response);
-                let json = await response.json();
-                console.log(json);
-
-                document.getElementById('deleteMessage').remove();
-
-
-                todo_container.innerHTML += `
-            <div>
-                <div>
-                    <span>Title 2: ${titleField.value}</span>
-
-                </div>
-            </div>
-        `;
-                titleField.value = '';
-
-            } catch (e) {
-                console.log('ERROR!', e)
-            }
-        }
     </script>
 
 
 </head>
 
 <body onload="init()">
-    <div id="todo_container"></div>
+    <div id="todo_container">
+
+    </div>
     <div id="backround">
 
         <div>
