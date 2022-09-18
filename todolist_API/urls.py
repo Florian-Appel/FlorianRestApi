@@ -13,10 +13,15 @@ Code from django rest framework site
 router = routers.DefaultRouter()
 router.register(r'todos', ToDoViewSet)
 
-
+from todo.views import index, login_view
+from todo.views import registration_view
+from todo.views import logout_view
 
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
     path('index/', index),
+    path('login/', login_view),
+    path('registration/', registration_view),
+    path('logout/', logout_view),
 ]
