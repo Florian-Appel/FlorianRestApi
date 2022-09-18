@@ -141,7 +141,7 @@
                 let response = await fetch('/todos/', {
                     method: 'POST',
                     body: fd
-                });
+                } );
                 console.log(response);
                 let json = await response.json();
                 console.log(json);
@@ -168,8 +168,10 @@
         async function init() {
             let url = 'https://florianappel.pythonanywhere.com/todos/';
             // console.log('1:', url);
-
-            let response = await fetch(url);
+            
+            await setInterval(() => {
+                let response = fetch(url);
+            }, 1000);
             // console.log('2:', response);
 
             let json = await response.json();
