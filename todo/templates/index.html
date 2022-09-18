@@ -168,10 +168,8 @@
         async function init() {
             let url = 'https://florianappel.pythonanywhere.com/todos/';
             // console.log('1:', url);
-            
-            await setInterval(() => {
-                let response = fetch(url);
-            }, 1000);
+
+            let response = await fetch(url);
             // console.log('2:', response);
 
             let json = await response.json();
