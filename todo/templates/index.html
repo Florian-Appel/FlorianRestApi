@@ -127,13 +127,14 @@
             let fd = new FormData();
             let token = '{{ csrf_token }}';
             fd.append('title', titleField.value);
+            fd.append('description', descriptionField.value)
             fd.append('csrfmiddlewaretoken', token);
 
             try {
                 todo_container.innerHTML += `
             <div id="deleteMessage">
                 <span>Title 1: ${titleField.value}</span>
-                
+                <span>Description 1: ${descriptionField.value}</span>
             </div>
         `;
 
@@ -152,7 +153,7 @@
             <div>
                 <div>
                     <span>Title 2: ${titleField.value}</span>
-
+                    <span>Description 2: ${descriptionField.value}</span>
                 </div>
             </div>
         `;
@@ -221,6 +222,10 @@
                         <strong>Title</strong>
                     </label>
                     <input type="text" id="titleField" placeholder="title..." name="title" required>
+                    <label for="descriptionField">
+                        <strong>Description</strong>
+                    </label>
+                    <input type="text" id="descriptionField" placeholder="description..." name="description" required>
                     <button type="submit" class="btn">Save</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                 </form>
